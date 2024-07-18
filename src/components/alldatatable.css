@@ -1,0 +1,9 @@
+.alldb{
+    height: 90vh !important;
+
+}
+
+.alldb button:hover{
+    background-color: orangered;
+    border-radius: 10px;
+} 
