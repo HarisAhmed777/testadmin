@@ -1,0 +1,7 @@
+a{
+    color: inherit;
+    background-color: inherit !important;
+}
+a:hover{
+    background-color: blue !important;
+}

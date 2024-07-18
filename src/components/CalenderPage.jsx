@@ -1,4 +1,14 @@
-<div className="content-wrapper">
+import React from "react";
+import Header from "./header";
+import Menu from "./Menu";
+
+
+function CalenderPage(){
+    return(
+        <>
+        <Header/>
+        <Menu/>
+        <div className="content-wrapper">
   <section className="content-header">
     <div className="container-fluid">
       <div className="row mb-2">
@@ -74,3 +84,9 @@
     </div>
   </section>
 </div>
+
+        </>
+    )
+}
+
+export default CalenderPage;

@@ -105,7 +105,14 @@ function Menu(){
             </li>
           </ul>
         </li>
-        
+        <li className="">
+          <a href="/calenderpage" className="nav-link active">
+            <i className=" fas fa-tachometer-alt" />
+            <p>
+              Calender
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

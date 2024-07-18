@@ -425,15 +425,13 @@ function Home(){
               <div id="calendar" style={{width: '100%'}} />
             </div>
           </div> */}
-          <CalendarComponent/>
+          {/* <CalendarComponent/> */}
         </section>
       </div>
     </div>
   </section>
 </div>
-
-        
-        </>
+     </>
     )
 }
 
