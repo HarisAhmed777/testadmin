@@ -106,14 +106,17 @@ function Menu(){
             </li>
           </ul>
         </li>
+        <Link to = '/calenderpage'>
         <li className="">
-          <a href="/calenderpage" className="nav-link active lii">
+          <a href="" className="nav-link active lii">
             <i className=" fas fa-tachometer-alt" />
             <p>
               Calender
             </p>
           </a>
         </li>
+        </Link>
+        <Link to = '/offers'>
         <li className="">
           <a href="/offers" className="nav-link active lii">
             <i className=" fas fa-tachometer-alt" />
@@ -122,6 +125,7 @@ function Menu(){
             </p>
           </a>
         </li>
+        </Link>
       </ul>
     </nav>
   </div>
