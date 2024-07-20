@@ -9,7 +9,7 @@ function CalenderPage(){
         <Header/>
         <Menu/>
         <div className="content-wrapper">
-  <section className="content-header">
+  <section className="content-header text-dark">
     <div className="container-fluid">
       <div className="row mb-2">
         <div className="col-sm-6">
@@ -33,7 +33,7 @@ function CalenderPage(){
               <div className="card-header">
                 <h4 className="card-title">Draggable Events</h4>
               </div>
-              <div className="card-body">
+              <div className="card-body text-dark">
                 <div id="external-events">
                   <div className="external-event bg-success">Lunch</div>
                   <div className="external-event bg-warning">Go home</div>

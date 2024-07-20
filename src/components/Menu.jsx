@@ -1,19 +1,20 @@
 import React from "react";
 import {Link} from 'react-router-dom'
-
+import Logo from '../../public/Logo.png';
 function Menu(){
     return(
         <>
 <aside className="main-sidebar sidebar-dark-primary elevation-4">
   <a href="" className="brand-link">
-    <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{opacity: '.8'}} />
+    
+    <img src={Logo} alt="Star Holidays Logo" className="brand-image img-circle elevation-3 " style={{opacity: '.8' ,height:'50px',width:'50px'}} />
     <span className="brand-text font-weight-light">Star Holidays</span>
   </a>
   <div className="sidebar">
     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div className="image">
+      {/* <div className="image">
         <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
-      </div>
+      </div> */}
       <div className="info">
         <a href="" className="d-block">Admin</a>
       </div>
@@ -31,7 +32,7 @@ function Menu(){
     <nav className="mt-2">
       <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview"  data-accordion="false">
         <li className="">
-          <a href="/" className="nav-link active">
+          <a href="/" className="nav-link active lii">
             <i className=" fas fa-tachometer-alt" />
             <p>
               Dashboard
@@ -106,10 +107,18 @@ function Menu(){
           </ul>
         </li>
         <li className="">
-          <a href="/calenderpage" className="nav-link active">
+          <a href="/calenderpage" className="nav-link active lii">
             <i className=" fas fa-tachometer-alt" />
             <p>
               Calender
+            </p>
+          </a>
+        </li>
+        <li className="">
+          <a href="/offers" className="nav-link active lii">
+            <i className=" fas fa-tachometer-alt" />
+            <p>
+              Offers
             </p>
           </a>
         </li>

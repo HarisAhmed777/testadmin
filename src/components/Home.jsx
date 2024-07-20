@@ -37,10 +37,10 @@ function Home(){
               <div className="card-tools">
                 <ul className="nav nav-pills ml-auto">
                   <li className="nav-item">
-                    <a className="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                    <a className="nav-link active text-dark" href="#revenue-chart" data-toggle="tab">Area</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                    <a className="nav-link text-dark" href="#sales-chart" data-toggle="tab">Donut</a>
                   </li>
                 </ul>
               </div>

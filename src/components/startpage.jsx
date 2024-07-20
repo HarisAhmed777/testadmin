@@ -10,7 +10,6 @@ function StartPage(){
         <Header/>
         <Menu/>
         <Home/>
-        <Footer/>
         </>
     )
 }

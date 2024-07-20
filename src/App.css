@@ -1,7 +1,7 @@
-a{
+.lii{
     color: inherit;
     background-color: inherit !important;
 }
-a:hover{
+.lii:hover{
     background-color: blue !important;
 }

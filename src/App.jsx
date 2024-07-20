@@ -17,6 +17,7 @@ import Allusers from './components/Users'
 import Allforms from './components/allforms'
 import { Calendar } from '@fullcalendar/core'
 import CalenderPage from './components/CalenderPage'
+import AdminOffers from './components/Offers'
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
       <Route path = '/allusers' element = {<Allusers/>}/>
       <Route path = '/allforms' element = {<Allforms/>}/>
       <Route path = '/CalenderPage' element = {<CalenderPage/>}/>
+      <Route path = '/offers' element = {<AdminOffers/>}/>
+
 
     </Routes>
     </BrowserRouter>
