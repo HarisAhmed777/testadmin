@@ -12,6 +12,34 @@
 
 
 
+/* Custom CSS for Sidebar */
+
+@media (max-width: 768px) {
+  .custom-sidebar {
+    /* width: 100%; */
+    position: fixed;
+    z-index: 1000;
+    left: -100%;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .custom-sidebar.active {
+    left: 0;
+  }
+
+  .btn-sidebar-toggle {
+    display: block;
+  }
+}
+
+.btn-sidebar-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+
 .lii{
     color: inherit;
     background-color: inherit !important;
