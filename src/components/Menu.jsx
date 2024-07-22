@@ -7,7 +7,7 @@ function Menu(){
 <aside className="main-sidebar sidebar-dark-primary elevation-4">
   <a href="" className="brand-link">
     
-    <img src={Logo} alt="Star Holidays Logo" className="brand-image img-circle elevation-3 " style={{opacity: '.8' ,height:'50px',width:'50px'}} />
+    <img src={Logo} alt="Star Holidays Logo" className="brand-image" style={{opacity: '8' ,height:'50px',width:'50px'}} />
     <span className="brand-text font-weight-light">Star Holidays</span>
   </a>
   <div className="sidebar">
@@ -34,7 +34,7 @@ function Menu(){
         <li className="">
           <a href="/" className="nav-link active lii">
             <i className=" fas fa-tachometer-alt" />
-            <p>
+            <p className="ms-2">
               Dashboard
             </p>
           </a>
@@ -42,7 +42,7 @@ function Menu(){
         <li className="nav-item">
           <a href="#" className="nav-link">
             <i className="nav-icon fas fa-chart-pie" />
-            <p>
+            <p className="ms-2">
               Charts
               <i className="right fas fa-angle-left" />
             </p>
@@ -79,7 +79,7 @@ function Menu(){
         <li className="nav-item">
           <a href="#" className="nav-link">
             <i className="nav-icon fas fa-table" />
-            <p>
+            <p className="ms-2">
               Tables
               <i className="fas fa-angle-left right" />
             </p>
@@ -110,7 +110,7 @@ function Menu(){
         <li className="">
           <a href="" className="nav-link active lii">
             <i className=" fas fa-tachometer-alt" />
-            <p>
+            <p className="ms-2">
               Calender
             </p>
           </a>
@@ -120,7 +120,7 @@ function Menu(){
         <li className="">
           <a href="/offers" className="nav-link active lii">
             <i className=" fas fa-tachometer-alt" />
-            <p>
+            <p className="ms-2">
               Offers
             </p>
           </a>
