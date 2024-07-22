@@ -51,6 +51,19 @@
     color: red !important;
   }
 
+  .overflow-hidden{
+    overflow:hidden !important;
+  }
+  .xx{
+overflow-x: hidden;
+  }
+  .table-responsive {
+    overflow-x: auto; /* Allow horizontal scrolling only on small screens */
+  }
+
+  
+  
+
   @media (min-width: 768px) {
     .btn-sidebar-toggle {
       display: none !important;

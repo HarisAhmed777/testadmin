@@ -36,7 +36,7 @@ function Menu() {
                   </p>
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-chart-pie" />
                   <p className="ms-2">
@@ -70,36 +70,40 @@ function Menu() {
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-table" />
                   <p className="ms-2">
-                    Tables
+                    DataTables
                     <i className="fas fa-angle-left right" />
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
+                  <Link to ='/allbookings'>
                   <li className="nav-item">
                     <a href="" className="nav-link">
                       <i className="far fa-circle nav-icon" />
-                      <p>Simple Tables</p>
+                      <p>BookingsTable</p>
                     </a>
                   </li>
-                  <Link to='/datatables'>
+                  </Link>
+                  <Link to='/allusers'>
                     <li className="nav-item">
                       <a href="" className="nav-link">
                         <i className="far fa-circle nav-icon" />
-                        <p>DataTables</p>
+                        <p>UsersTable</p>
                       </a>
                     </li>
                   </Link>
+                  <Link to = '/allforms'>
                   <li className="nav-item">
                     <a href="" className="nav-link">
                       <i className="far fa-circle nav-icon" />
-                      <p>jsGrid</p>
+                      <p>Form request Table</p>
                     </a>
                   </li>
+                  </Link>
                 </ul>
               </li>
               <Link to='/calenderpage'>

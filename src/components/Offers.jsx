@@ -3,6 +3,7 @@ import axios from 'axios';
 import { baseUrl } from '../baseUrl';
 import Header from './header';
 import Menu from './Menu';
+
 function AdminOffers() {
   const [offers, setOffers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,49 +49,50 @@ function AdminOffers() {
 
   return (
     <>
-    <Header/>
-    <Menu/>
-    <div className="container content-wrapper mt-4">
-      <h1 className="text-center mb-4">Manage Offers</h1>
-      <div className="table-responsive">
-        <table className="table bg-dark table-striped table-bordered">
-          <thead className="thead-dark">
-            <tr>
-              <th>Code</th>
-              <th>Discount</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {offers.map((offer, index) => (
-              <tr key={offer._id}>
-                <td>
-                  <input
-                    type="text"
-                    value={offer.code}
-                    onChange={(e) => handleInputChange(index, 'code', e.target.value)}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    value={offer.discount}
-                    onChange={(e) => handleInputChange(index, 'discount', e.target.value)}
-                  />
-                </td>
-                <td>
-                  <button className="btn btn-primary" onClick={() => handleUpdate(index)}>
-                    Update
-                  </button>
-                </td>
+      <Header />
+      <Menu />
+      <div className="container xx mt-4 overflow-auto content-wrapper">
+        <h1 className="text-center mb-4 ">Manage Offers</h1>
+        <div className="table-responsive overflow-hidden">
+          <table className="table bg-dark table-striped table-bordered">
+            <thead className="thead-dark">
+              <tr>
+                <th>Code</th>
+                <th>Discount</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-    </>
+            </thead>
+            <tbody>
+              {offers.map((offer, index) => (
+                <tr key={offer._id}>
+                  <td>
+                    <input
+                      type="text"
+                      value={offer.code}
+                      onChange={(e) => handleInputChange(index, 'code', e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      value={offer.discount}
+                      onChange={(e) => handleInputChange(index, 'discount', e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <button className="btn btn-primary" onClick={() => handleUpdate(index)}>
+                      Update
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          </div>
+          </div>
 
+    
+    </>
   );
 }
 

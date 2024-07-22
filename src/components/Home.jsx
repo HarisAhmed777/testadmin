@@ -214,7 +214,7 @@ function Home(){
               </div>
             </div>
           </div>
-          <div className="card bg-gradient-info d-flex column-reverse">
+          <div className="card bg-gradient-info d-flex ">
             <div className="card-header border-0">
               <h3 className="card-title">
                 <i className="fas fa-th mr-1" />
