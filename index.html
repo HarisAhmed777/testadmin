@@ -39,6 +39,17 @@
     <script src="dist/js/demo.js"></script>
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="../../dist/js/demo.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButton = document.querySelector('.btn-sidebar-toggle');
+      const sidebar = document.querySelector('.custom-sidebar');
+    
+      toggleButton.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
+        document.body.classList.toggle('sidebar-open'); // Ensure the body class toggles for overlay effects
+      });
+    });
+  </script>
     <!-- Calnder Scripts -->
     
 

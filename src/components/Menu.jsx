@@ -4,6 +4,7 @@ import Logo from '../../public/Logo.png';
 
 function Menu() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  document.body.classList.toggle('sidebar-open', !isSidebarOpen); // Add a class to body for handling the sidebar
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
