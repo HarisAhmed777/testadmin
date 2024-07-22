@@ -4,15 +4,20 @@ import Logo from '../../public/Logo.png';
 
 function Menu() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
-  document.body.classList.toggle('sidebar-open', !isSidebarOpen); // Add a class to body for handling the sidebar
+  const [activeMenu, setActiveMenu] = useState(null);
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
+    document.body.classList.toggle('sidebar-open', !isSidebarOpen);
+  };
+
+  const handleMenuClick = (menu) => {
+    setActiveMenu(activeMenu === menu ? null : menu);
   };
 
   return (
     <>
-      <aside className={`main-sidebar sidebar-dark-primary  custom-sidebar ${isSidebarOpen ? 'active' : ''}`}>
+      <aside className={`main-sidebar sidebar-dark-primary custom-sidebar ${isSidebarOpen ? 'active' : ''}`}>
         <Link to="/" className="brand-link">
           <img src={Logo} alt="Star Holidays Logo" className="brand-image" style={{ opacity: '0.8', height: '50px', width: '50px' }} />
           <span className="brand-text font-weight-light">Star Holidays</span>
@@ -42,14 +47,14 @@ function Menu() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="#" className="nav-link">
+                <button className="nav-link" onClick={() => handleMenuClick('datatables')}>
                   <i className="nav-icon fas fa-table" />
                   <p className="ms-2">
                     DataTables
                     <i className="right fas fa-angle-left" />
                   </p>
-                </Link>
-                <ul className="nav nav-treeview">
+                </button>
+                <ul className={`nav nav-treeview ${activeMenu === 'datatables' ? 'active' : ''}`}>
                   <li className="nav-item">
                     <Link to="/allbookings" className="nav-link">
                       <i className="far fa-circle nav-icon" />
@@ -84,7 +89,7 @@ function Menu() {
               </li>
             </ul>
             <button className="btn btn-sidebar-toggle" onClick={toggleSidebar}>
-              <i className="fas fa-times" />
+              <i className={`fas fa-${isSidebarOpen ? 'times' : 'bars'}`} />
             </button>
           </nav>
         </div>
@@ -94,7 +99,3 @@ function Menu() {
 }
 
 export default Menu;
-
-
-
-

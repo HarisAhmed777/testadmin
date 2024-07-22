@@ -80,7 +80,31 @@
   }
 
   
-  
+  /* Ensure dropdowns are hidden by default on mobile */
+@media (max-width: 768px) {
+  .nav-treeview {
+    display: none;
+  }
+
+  .nav-item.active .nav-treeview {
+    display: block;
+  }
+}
+
+/* Make sure to adjust this as needed to fit your design */
+.nav-treeview {
+  display: none; /* Hide by default */
+}
+
+.nav-treeview li {
+  padding-left: 20px;
+}
+
+/* Show the treeview menu when its parent is active */
+.nav-item.active .nav-treeview {
+  display: block;
+}
+
 
   @media (min-width: 768px) {
     .btn-sidebar-toggle {
