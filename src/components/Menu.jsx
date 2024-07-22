@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../public/Logo.png';
 
 function Menu() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
   document.body.classList.toggle('sidebar-open', !isSidebarOpen); // Add a class to body for handling the sidebar
 
   const toggleSidebar = () => {
@@ -71,7 +71,7 @@ function Menu() {
                 </ul>
               </li>
               <li className="nav-item">
-                <Link to="/calendarpage" className="nav-link">
+                <Link to="/CalenderPage" className="nav-link">
                   <i className="fas fa-calendar-alt" />
                   <p className="ms-2">Calendar</p>
                 </Link>
@@ -94,3 +94,7 @@ function Menu() {
 }
 
 export default Menu;
+
+
+
+
