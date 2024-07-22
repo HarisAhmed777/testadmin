@@ -51,10 +51,6 @@
     color: red !important;
   }
 
-  .table-responsive {
-    overflow-x: auto; /* Allow horizontal scrolling only on small screens */
-  }
-
   
   
 
