@@ -51,7 +51,7 @@ function AdminOffers() {
     <>
       <Header />
       <Menu />
-      <div className="container xx mt-4 overflow-auto content-wrapper">
+      <div className="container  mt-4 overflow-auto content-wrapper">
         <h1 className="text-center mb-4 ">Manage Offers</h1>
         <div className="table-responsive overflow-hidden">
           <table className="table bg-dark table-striped table-bordered">
