@@ -87,6 +87,18 @@ function Menu() {
                   <p className="ms-2">Offers</p>
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to="/blogpage" className="nav-link">
+                  <i className="" />
+                  <p className="ms-2">Blogs</p>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/logout" className="nav-link">
+                  <i className="" />
+                  <p className="ms-2">Logout</p>
+                </Link>
+              </li>
             </ul>
             <button className="btn btn-sidebar-toggle" onClick={toggleSidebar}>
               <i className={`fas fa-${isSidebarOpen ? 'times' : 'bars'}`} />
