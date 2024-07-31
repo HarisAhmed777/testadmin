@@ -11,11 +11,12 @@ function PackageAddPage() {
   const [duration, setduration] = useState("");
   const [location, setlocation] = useState("");
   const [cost, setCost] = useState("");
-  const [catogory, setCatogory] = useState("");
+  const [catogory, setCatogory] = useState("School Package");
   const [maxdays,setMaxdays] = useState("");
   const [uploadedAt, setUploadedAt] = useState(null);
 
   const handleSubmit = async () => {
+    console.log(location);
     const formData = new FormData();
     formData.append("image", selectedImage);
     formData.append("packagename", packagename);
@@ -35,7 +36,7 @@ function PackageAddPage() {
       setUploadedAt(response.data.uploadedAt);
       console.log("Package posted successfully:", response.data);
     } catch (error) {
-      console.error("Error posting blog:", error);
+      console.error("Error posting Package:", error);
     }
   };
 
