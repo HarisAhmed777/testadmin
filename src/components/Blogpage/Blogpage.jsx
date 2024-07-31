@@ -24,6 +24,12 @@ function BlogPage() {
         },
       });
       setUploadedAt(response.data.uploadedAt);
+      alert("Blog uploaded Succesfully");
+      setBlogTitle("");
+      setFirstpara("");
+      setSecondpara("");
+      setSelectedImage(null);
+
       console.log("Blog posted successfully:", response.data);
     } catch (error) {
       console.error("Error posting blog:", error);

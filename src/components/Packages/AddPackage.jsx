@@ -35,6 +35,14 @@ function PackageAddPage() {
       });
       setUploadedAt(response.data.uploadedAt);
       console.log("Package posted successfully:", response.data);
+      alert("Package added Successfully");
+      setSelectedImage(null);
+      setCatogory("School Package");
+      setCost(" ");
+      setMaxdays(" ");
+      setPackageName("");
+      setduration("");
+      setlocation("");
     } catch (error) {
       console.error("Error posting Package:", error);
     }
@@ -65,6 +73,7 @@ function PackageAddPage() {
                 <td>
                   <input
                     type="text"
+                    placeholder="example : 3days and 2 nights"
                     className={`form-control ${styles.input}`}
                     value={duration}
                     onChange={(e) => setduration(e.target.value)}
@@ -87,6 +96,7 @@ function PackageAddPage() {
                 <td>
                   <input
                     type="text"
+                    placeholder="only on number ex:400"
                     className={`form-control ${styles.input}`}
                     value={cost}
                     onChange={(e) => setCost(e.target.value)}
@@ -111,6 +121,7 @@ function PackageAddPage() {
                 <td>
                   <input
                     type="text"
+                    placeholder="only on number ex:5 for 5 days"
                     className={`form-control ${styles.input}`}
                     value={maxdays}
                     onChange={(e) => setMaxdays(e.target.value)}

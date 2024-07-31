@@ -94,12 +94,12 @@ function Displaycards() {
                     <div className="small-box bg-danger">
                         <div className="inner">
                             <h3>{displayCounts.totalAmount}</h3>
-                            <p>TotalAmount</p>
+                            <p>Total Earnings</p>
                         </div>
                         <div className="icon">
                             <i className="ion ion-pie-graph" />
                         </div>
-                        <a href="#" className="small-box-footer">Bookings succesful</a>
+                        <a href="/totalearnings" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
                     </div>
                 </div>
             </div>
