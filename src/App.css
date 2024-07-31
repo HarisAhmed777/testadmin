@@ -95,6 +95,9 @@
 .nav-treeview {
   display: none; /* Hide by default */
 }
+.clr{
+  color: darkorange !important;
+}
 
 .nav-treeview li {
   padding-left: 20px;
@@ -103,6 +106,17 @@
 /* Show the treeview menu when its parent is active */
 .nav-item.active .nav-treeview {
   display: block;
+}
+a.adm{
+  text-decoration: none !important;
+
+}
+
+.form-control,.inp{
+  width: 20% !important;
+}
+a.info{
+  text-decoration: none !important;
 }
 
 

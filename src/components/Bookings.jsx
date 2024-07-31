@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +9,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import Header from "./header";
 import Menu from "./Menu";
+import { useReactToPrint } from 'react-to-print';
 
 function Bookings() {
     const [data, setData] = useState([]);
@@ -24,6 +25,7 @@ function Bookings() {
         startdate: true,
         enddate: true
     });
+    const printing = useRef();
 
     useEffect(() => {
         fetch(`${baseUrl}/allbookings`)
@@ -87,10 +89,10 @@ function Bookings() {
             new Date(booking.startdate).toLocaleDateString(),
             new Date(booking.enddate).toLocaleDateString()
         ]);
-    
+
         const wb = xlsx.utils.book_new();
         const ws = xlsx.utils.aoa_to_sheet([headers, ...bookingData]);
-    
+
         xlsx.utils.book_append_sheet(wb, ws, "Sheet1");
         const blob = xlsx.write(wb, { bookType: 'xlsx', type: 'array' });
         const fileBlob = new Blob([blob], { type: 'application/octet-stream' });
@@ -120,14 +122,10 @@ function Bookings() {
         doc.save('bookings.pdf');
     };
 
-    const handlePrint = () => {
-        const printContent = document.getElementById('printable-table').innerHTML;
-        const originalContent = document.body.innerHTML;
-        document.body.innerHTML = printContent;
-        window.print();
-        document.body.innerHTML = originalContent;
-        window.location.reload();
-    };
+    const handlePrint = useReactToPrint({
+        content: () => printing.current,
+        documentTitle: "Booking Data"
+    });
 
     const handleColumnVisibility = (column) => {
         setVisibleColumns(prevState => ({
@@ -137,56 +135,63 @@ function Bookings() {
     };
 
     return (
-      <>
-      <Header/>
-      <Menu/>
-        <div className="container content-wrapper mt-4">
-      
-            <h1 className="text-center mb-4 ">Bookings</h1>
-            <div className="mb-4">
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Search Bookings"
-                    value={searchTerm}
-                    onChange={handleSearch}
-                />
+        <>
+            <Header />
+            <Menu />
+            <div className="overflow-hidden">
+                <div className="container content-wrapper mt-4">
+                    <h1 className="text-center mb-4 ">Bookings</h1>
+                    <div className="mb-4">
+                        <input
+                            type="text"
+                            className="form-control"
+                            style={{ width: '20%' }}
+                            placeholder="Search Bookings"
+                            value={searchTerm}
+                            onChange={handleSearch}
+                        />
+                    </div>
+                    <div className="table-responsive">
+                        <div className="d-flex gap-2">
+                            <button onClick={handledownload} className="btn btn-primary mb-4">CSV</button>
+                            <button onClick={handlePDFDownload} className="btn btn-primary mb-4">PDF</button>
+                            <button onClick={handlePrint} className="btn btn-primary mb-4">Print</button>
+                        </div>
+                        <div ref={printing} style={{ width: '100%' }}>
+                            <table className="table bg-dark table-striped table-bordered" id="printable-table">
+                                <thead className="">
+                                    <tr>
+                                        {visibleColumns.name && <th onClick={() => sortData('name')}>Name <FontAwesomeIcon icon={getSortIcon('name')} /></th>}
+                                        {visibleColumns.age && <th onClick={() => sortData('age')}>Age <FontAwesomeIcon icon={getSortIcon('age')} /></th>}
+                                        {visibleColumns.persons && <th onClick={() => sortData('persons')}>Persons <FontAwesomeIcon icon={getSortIcon('persons')} /></th>}
+                                        {visibleColumns.email && <th onClick={() => sortData('email')}>Mail ID <FontAwesomeIcon icon={getSortIcon('email')} /></th>}
+                                        {visibleColumns.city && <th onClick={() => sortData('city')}>City <FontAwesomeIcon icon={getSortIcon('city')} /></th>}
+                                        {visibleColumns.mobile && <th onClick={() => sortData('mobile')}>Mobile Number <FontAwesomeIcon icon={getSortIcon('mobile')} /></th>}
+                                        {visibleColumns.startdate && <th onClick={() => sortData('startdate')}>Start Date <FontAwesomeIcon icon={getSortIcon('startdate')} /></th>}
+                                        {visibleColumns.enddate && <th onClick={() => sortData('enddate')}>End Date <FontAwesomeIcon icon={getSortIcon('enddate')} /></th>}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {filteredData.map((value, index) => (
+                                        <tr key={index}>
+                                            {visibleColumns.name && <td>{value.name}</td>}
+                                            {visibleColumns.age && <td>{value.age}</td>}
+                                            {visibleColumns.persons && <td>{value.persons}</td>}
+                                            {visibleColumns.email && <td>{value.email}</td>}
+                                            {visibleColumns.city && <td>{value.city}</td>}
+                                            {visibleColumns.mobile && <td>{value.mobile}</td>}
+                                            {visibleColumns.startdate && <td>{new Date(value.startdate).toLocaleDateString()}</td>}
+                                            {visibleColumns.enddate && <td>{new Date(value.enddate).toLocaleDateString()}</td>}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="table-responsive">
-                <button onClick={handledownload} className="btn btn-primary mb-4">CSV</button>
-                <button onClick={handlePDFDownload} className="btn btn-primary mb-4">PDF</button>
-                <button onClick={handlePrint} className="btn btn-primary mb-4">Print</button>
-                <table className="table bg-dark table-striped table-bordered" id="printable-table">
-                    <thead className="thead-dark">
-                        <tr>
-                            {visibleColumns.name && <th onClick={() => sortData('name')}>Name <FontAwesomeIcon icon={getSortIcon('name')} /></th>}
-                            {visibleColumns.age && <th onClick={() => sortData('age')}>Age <FontAwesomeIcon icon={getSortIcon('age')} /></th>}
-                            {visibleColumns.persons && <th onClick={() => sortData('persons')}>Persons <FontAwesomeIcon icon={getSortIcon('persons')} /></th>}
-                            {visibleColumns.email && <th onClick={() => sortData('email')}>Mail ID <FontAwesomeIcon icon={getSortIcon('email')} /></th>}
-                            {visibleColumns.city && <th onClick={() => sortData('city')}>City <FontAwesomeIcon icon={getSortIcon('city')} /></th>}
-                            {visibleColumns.mobile && <th onClick={() => sortData('mobile')}>Mobile Number <FontAwesomeIcon icon={getSortIcon('mobile')} /></th>}
-                            {visibleColumns.startdate && <th onClick={() => sortData('startdate')}>Start Date <FontAwesomeIcon icon={getSortIcon('startdate')} /></th>}
-                            {visibleColumns.enddate && <th onClick={() => sortData('enddate')}>End Date <FontAwesomeIcon icon={getSortIcon('enddate')} /></th>}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredData.map((value, index) => (
-                            <tr key={index}>
-                                {visibleColumns.name && <td>{value.name}</td>}
-                                {visibleColumns.age && <td>{value.age}</td>}
-                                {visibleColumns.persons && <td>{value.persons}</td>}
-                                {visibleColumns.email && <td>{value.email}</td>}
-                                {visibleColumns.city && <td>{value.city}</td>}
-                                {visibleColumns.mobile && <td>{value.mobile}</td>}
-                                {visibleColumns.startdate && <td>{new Date(value.startdate).toLocaleDateString()}</td>}
-                                {visibleColumns.enddate && <td>{new Date(value.enddate).toLocaleDateString()}</td>}
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        </div>
         </>
     );
-                        }
+}
+
 export default Bookings;

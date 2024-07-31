@@ -51,6 +51,7 @@ function AdminOffers() {
     <>
       <Header />
       <Menu />
+      <div className='overflow-hidden'>
       <div className="container  mt-4  content-wrapper">
         <h1 className="text-center mb-4 ">Manage Offers</h1>
         <div className="table-responsive">
@@ -88,6 +89,7 @@ function AdminOffers() {
               ))}
             </tbody>
           </table>
+          </div>
           </div>
           </div>
 

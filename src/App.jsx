@@ -13,6 +13,9 @@ import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
 import Logout from './components/Login/Logout';
 import Blogpage from './components/Blogpage/Blogpage';
+import AllBlogs from './components/Blogpage/AllBlogs';
+import PackageAddPage from './components/Packages/AddPackage';
+import Allpackages from './components/Packages/AllPackages';
 
 function App() {
     return (
@@ -27,7 +30,9 @@ function App() {
                 <Route path="/CalenderPage" element={<ProtectedRoute element={<CalenderPage />} />} />
                 <Route path="/offers" element={<ProtectedRoute element={<AdminOffers />} />} />
                 <Route path="/blogpage" element={<ProtectedRoute element={<Blogpage />} />} />
-
+                <Route path="/allblogs" element={<ProtectedRoute element={<AllBlogs />} />} />
+                <Route path="/packageaddpage" element={<ProtectedRoute element={<PackageAddPage />} />} />
+                <Route path="/allpackages" element={<ProtectedRoute element={<Allpackages />} />} />
                 <Route path="/logout" element={<Logout/>} />
             </Routes>
         </BrowserRouter>

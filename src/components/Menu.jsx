@@ -25,7 +25,7 @@ function Menu() {
         <div className="sidebar">
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
             <div className="info">
-              <Link to="/" className="d-block">Admin</Link>
+              <Link to="/" className="d-block adm">Sample</Link>
             </div>
           </div>
           <div className="form-inline">
@@ -47,38 +47,27 @@ function Menu() {
                 </Link>
               </li>
               <li className="nav-item">
-                <button className="nav-link" onClick={() => handleMenuClick('datatables')}>
-                  <i className="nav-icon fas fa-table" />
-                  <p className="ms-2">
-                    DataTables
-                    <i className="right fas fa-angle-left" />
-                  </p>
-                </button>
-                <ul className={`nav nav-treeview ${activeMenu === 'datatables' ? 'active' : ''}`}>
-                  <li className="nav-item">
-                    <Link to="/allbookings" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>BookingsTable</p>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/allusers" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>UsersTable</p>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link to="/allforms" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Form Request Table</p>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
                 <Link to="/CalenderPage" className="nav-link">
                   <i className="fas fa-calendar-alt" />
                   <p className="ms-2">Calendar</p>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/allbookings" className="nav-link">
+                  <i className="" />
+                  <p className="ms-2">Booking Page</p>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/allusers" className="nav-link">
+                  <i className="" />
+                  <p className="ms-2">Users Page</p>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/allforms" className="nav-link">
+                  <i className="" />
+                  <p className="ms-2">Form Request</p>
                 </Link>
               </li>
               <li className="nav-item">
@@ -90,7 +79,25 @@ function Menu() {
               <li className="nav-item">
                 <Link to="/blogpage" className="nav-link">
                   <i className="" />
+                  <p className="ms-2">Add Blog</p>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/allblogs" className="nav-link">
+                  <i className="" />
                   <p className="ms-2">Blogs</p>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/packageaddpage" className="nav-link">
+                  <i className="" />
+                  <p className="ms-2">Add Packages</p>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/allpackages" className="nav-link">
+                  <i className="" />
+                  <p className="ms-2">All Packages</p>
                 </Link>
               </li>
               <li className="nav-item">

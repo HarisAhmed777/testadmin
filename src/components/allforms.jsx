@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
-import {baseUrl} from '../baseUrl'
+import { baseUrl } from '../baseUrl';
 import Header from './header';
 import Menu from './Menu';
+
 function Allforms() {
     const [forms, setForms] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
@@ -56,7 +57,6 @@ function Allforms() {
     const filteredForms = forms.filter(form =>
         form.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         form.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        // form.mobile.toLowerCase().includes(searchTerm.toLowerCase()) ||
         form.budget.toString().includes(searchTerm.toLowerCase()) ||
         form.travelDate.toLowerCase().includes(searchTerm.toLowerCase()) ||
         form.numberOfPeople.toString().includes(searchTerm.toLowerCase()) ||
@@ -74,66 +74,70 @@ function Allforms() {
 
     return (
         <>
-        <Header/>
-        <Menu/>
-        <div className="container content-wrapper mt-4">
-            <h1 className="text-center mb-4 ">Forms</h1>
-            <div className="mb-4">
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Search Forms"
-                    value={searchTerm}
-                    onChange={handleSearch}
-                />
-            </div>
-            <div className="table-responsive">
-                <table className="table bg-dark table-striped table-bordered">
-                    <thead className="thead-dark">
-                        <tr>
-                            <th onClick={() => sortData('name')}>
-                                Name <FontAwesomeIcon icon={getSortIcon('name')} />
-                            </th>
-                            <th onClick={() => sortData('email')}>
-                                Email <FontAwesomeIcon icon={getSortIcon('email')} />
-                            </th>
-                            <th onClick={() => sortData('mobile')}>
-                                Mobile <FontAwesomeIcon icon={getSortIcon('mobile')} />
-                            </th>
-                            <th onClick={() => sortData('budget')}>
-                                Budget <FontAwesomeIcon icon={getSortIcon('budget')} />
-                            </th>
-                            <th onClick={() => sortData('travelDate')}>
-                                Travel Date <FontAwesomeIcon icon={getSortIcon('travelDate')} />
-                            </th>
-                            <th onClick={() => sortData('numberOfPeople')}>
-                                Number of People <FontAwesomeIcon icon={getSortIcon('numberOfPeople')} />
-                            </th>
-                            <th onClick={() => sortData('interest')}>
-                                Interest <FontAwesomeIcon icon={getSortIcon('interest')} />
-                            </th>
-                            <th onClick={() => sortData('desiredLocations')}>
-                                Desired Locations <FontAwesomeIcon icon={getSortIcon('desiredLocations')} />
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredForms.map((form, index) => (
-                            <tr key={index}>
-                                <td>{form.name}</td>
-                                <td>{form.email}</td>
-                                <td>{form.mobile}</td>
-                                <td>{form.budget}</td>
-                                <td>{form.travelDate}</td>
-                                <td>{form.numberOfPeople}</td>
-                                <td>{form.interest}</td>
-                                <td>{form.desiredLocations.join(', ')}</td>
+            <Header />
+            <Menu />
+            <div className='overflow-hidden'>
+            <div className="container content-wrapper mt-4">
+                <h1 className="text-center mb-4">Forms</h1>
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        className="form-control"
+                        style={{ width: '20%' }}
+                        placeholder="Search Forms"
+                        value={searchTerm}
+                        onChange={handleSearch}
+                    />
+                </div>
+                <div className="table-responsive"
+                style={{width:'95%'}}>
+                    <table className="table table-dark table-striped table-bordered">
+                        <thead className="thead-dark">
+                            <tr>
+                                <th onClick={() => sortData('name')}>
+                                    Name <FontAwesomeIcon icon={getSortIcon('name')} />
+                                </th>
+                                <th onClick={() => sortData('email')}>
+                                    Email <FontAwesomeIcon icon={getSortIcon('email')} />
+                                </th>
+                                <th onClick={() => sortData('mobile')}>
+                                    Mobile <FontAwesomeIcon icon={getSortIcon('mobile')} />
+                                </th>
+                                <th onClick={() => sortData('budget')}>
+                                    Budget <FontAwesomeIcon icon={getSortIcon('budget')} />
+                                </th>
+                                <th onClick={() => sortData('travelDate')}>
+                                    Travel Date <FontAwesomeIcon icon={getSortIcon('travelDate')} />
+                                </th>
+                                <th onClick={() => sortData('numberOfPeople')}>
+                                    Number of People <FontAwesomeIcon icon={getSortIcon('numberOfPeople')} />
+                                </th>
+                                <th onClick={() => sortData('interest')}>
+                                    Interest <FontAwesomeIcon icon={getSortIcon('interest')} />
+                                </th>
+                                <th onClick={() => sortData('desiredLocations')}>
+                                    Desired Locations <FontAwesomeIcon icon={getSortIcon('desiredLocations')} />
+                                </th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {filteredForms.map((form, index) => (
+                                <tr key={index}>
+                                    <td>{form.name}</td>
+                                    <td>{form.email}</td>
+                                    <td>{form.mobile}</td>
+                                    <td>{form.budget}</td>
+                                    <td>{form.travelDate}</td>
+                                    <td>{form.numberOfPeople}</td>
+                                    <td>{form.interest}</td>
+                                    <td>{form.desiredLocations.join(', ')}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+            </div>
         </>
     );
 }

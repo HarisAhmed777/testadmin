@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +9,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import Header from "./header";
 import Menu from "./Menu";
+import {useReactToPrint} from 'react-to-print'
 
 function Allusers() {
     const [data, setData] = useState([]);
@@ -20,6 +21,7 @@ function Allusers() {
         mobilenumber: true,
         email: true
     });
+    const printing = useRef();
 
     useEffect(() => {
         fetch(`${baseUrl}/allusers`)
@@ -104,14 +106,12 @@ function Allusers() {
         doc.save('users.pdf');
     };
 
-    const handlePrint = () => {
-        const printContent = document.getElementById('printable-table-users').innerHTML;
-        const originalContent = document.body.innerHTML;
-        document.body.innerHTML = printContent;
-        window.print();
-        document.body.innerHTML = originalContent;
-        window.location.reload();
-    };
+    const handlePrint = useReactToPrint({
+        content:()=>printing.current,
+        documentTitle:"Users Data"
+    });
+       
+    
 
     const handleColumnVisibility = (column) => {
         setVisibleColumns(prevState => ({
@@ -124,6 +124,7 @@ function Allusers() {
         <>
         <Header/>
         <Menu/>
+        <div className="overflow-hidden">
         <div className="container  content-wrapper mt-4">
             <h1 className="text-center mb-4 ">All Users</h1>
             <div className="mb-4">
@@ -132,20 +133,23 @@ function Allusers() {
                     className="form-control"
                     placeholder="Search Users"
                     value={searchTerm}
+                    style={{width:'20%'}}
                     onChange={handleSearch}
                 />
             </div>
             <div className="table-responsive">
+                <div className="d-flex gap-3">
                 <button onClick={handledownload} className="btn btn-primary mb-4">CSV</button>
                 <button onClick={handlePDFDownload} className="btn btn-primary mb-4">PDF</button>
                 <button onClick={handlePrint} className="btn btn-primary mb-4">Print</button>
+                </div>
                 {/* <button className="btn btn-primary mb-4" onClick={() => handleColumnVisibility('firstname')}>Toggle First Name</button>
                 <button className="btn btn-primary mb-4" onClick={() => handleColumnVisibility('lastname')}>Toggle Last Name</button>
                 <button className="btn btn-primary mb-4" onClick={() => handleColumnVisibility('mobilenumber')}>Toggle Mobile Number</button>
                 <button className="btn btn-primary mb-4" onClick={() => handleColumnVisibility('email')}>Toggle Email</button> */}
-
+                <div ref={printing} style={{width:'100%'}}>
                 <table className="table bg-dark table-striped table-bordered" id="printable-table-users">
-                    <thead className="thead-dark">
+                    <thead className="">
                         <tr>
                             {visibleColumns.firstname && <th onClick={() => sortData('firstname')}>First Name <FontAwesomeIcon icon={getSortIcon('firstname')} /></th>}
                             {visibleColumns.lastname && <th onClick={() => sortData('lastname')}>Last Name <FontAwesomeIcon icon={getSortIcon('lastname')} /></th>}
@@ -164,7 +168,9 @@ function Allusers() {
                         ))}
                     </tbody>
                 </table>
+                </div>
             </div>
+        </div>
         </div>
         </>
     );

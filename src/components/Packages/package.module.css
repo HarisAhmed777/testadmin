@@ -1,0 +1,15 @@
+.overflow{
+    width: 83% !important;
+}
+
+.input{
+    border: none;
+    border-radius: 0px !important;
+    border-bottom: 2px solid gainsboro;
+}
+.input:focus{
+    outline: none !important;
+    /* border: none !important; */
+    border: 0px;
+    border-bottom: 2px solid yellow;
+}

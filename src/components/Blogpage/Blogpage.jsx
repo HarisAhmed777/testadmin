@@ -3,7 +3,7 @@ import axios from "axios";
 import Header from "../header";
 import Menu from "../Menu";
 import styles from './blogpage.module.css'
-
+import {baseUrl} from '../../baseUrl'
 function BlogPage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [blogTitle, setBlogTitle] = useState("");
@@ -18,7 +18,7 @@ function BlogPage() {
     formData.append("firstpara", firstpara);
     formData.append("secondpara", secondpara);
     try {
-      const response = await axios.post("http://localhost:8888/blogpage", formData, {
+      const response = await axios.post(`${baseUrl}/blogpage`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
