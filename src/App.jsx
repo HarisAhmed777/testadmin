@@ -16,6 +16,8 @@ import Blogpage from './components/Blogpage/Blogpage';
 import AllBlogs from './components/Blogpage/AllBlogs';
 import PackageAddPage from './components/Packages/AddPackage';
 import Allpackages from './components/Packages/AllPackages';
+import Charts from './components/Charts';
+import AdminChart from './components/Charts';
 
 function App() {
     return (
@@ -33,6 +35,9 @@ function App() {
                 <Route path="/allblogs" element={<ProtectedRoute element={<AllBlogs />} />} />
                 <Route path="/packageaddpage" element={<ProtectedRoute element={<PackageAddPage />} />} />
                 <Route path="/allpackages" element={<ProtectedRoute element={<Allpackages />} />} />
+                <Route path="/charts" element={<ProtectedRoute element={<AdminChart/>} />} />
+
+
                 <Route path="/logout" element={<Logout/>} />
             </Routes>
         </BrowserRouter>
