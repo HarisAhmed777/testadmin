@@ -8,3 +8,8 @@
   .styleline{
     width: 90% !important;
   }
+  @media (min-width:1024px) {
+    .dnn{
+      display: none;
+    }    
+  }

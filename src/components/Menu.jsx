@@ -18,10 +18,15 @@ function Menu() {
   return (
     <>
       <aside className={`main-sidebar sidebar-dark-primary custom-sidebar ${isSidebarOpen ? 'active' : ''}`}>
+        <div className="d-flex justify-content-center">
         <Link to="/" className="brand-link">
           <img src={Logo} alt="Star Holidays Logo" className="brand-image" style={{ opacity: '0.8', height: '50px', width: '50px' }} />
           <span className="brand-text font-weight-light">Star Holidays</span>
         </Link>
+        <button className="btn btn-sidebar-toggle" onClick={toggleSidebar}>
+              <i className={`fas dnn fa-${isSidebarOpen ? 'times':"times"}`} />
+            </button>
+        </div>
         <div className="sidebar">
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
             <div className="info">
@@ -107,9 +112,7 @@ function Menu() {
                 </Link>
               </li>
             </ul>
-            <button className="btn btn-sidebar-toggle" onClick={toggleSidebar}>
-              <i className={`fas fa-${isSidebarOpen ? 'times' : 'bars'}`} />
-            </button>
+            
           </nav>
         </div>
       </aside>
