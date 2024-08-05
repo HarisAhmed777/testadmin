@@ -92,8 +92,8 @@ function Displaycards() {
                 </div>
                 <div className="col-lg-3 col-6">
                     <div className="small-box bg-danger">
-                        <div className="inner">
-                            <h3>{displayCounts.totalAmount}</h3>
+                        <div className="inner ">
+                            <h3 className="amt">Rs:{displayCounts.totalAmount}</h3>
                             <p>Total Earnings</p>
                         </div>
                         <div className="icon">

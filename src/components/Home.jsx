@@ -1,10 +1,6 @@
 import React from "react";
-import CalendarComponent from "./Calender";
 import Displaycards from "./Displaycards";
-import Charts from "./Charts";
-import DoughnutChart from "./DognutChart";
-import PieChart from "./PieChart";
-import LineChart from "./LineChart";
+import UICharts from "./UICharts";
 
 function Home(){
     return(
@@ -13,11 +9,7 @@ function Home(){
 
         <div className="mt-5 me-2 ms-2">
         <Displaycards/>
-        <Charts/>
-        <DoughnutChart/>
-      
-        {/* <PieChart/> */}
-        <LineChart/>
+        <UICharts/>
         </div>
         </div>
 

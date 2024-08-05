@@ -58,59 +58,61 @@ function Menu() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/allbookings" className="nav-link">
-                  <i className="" />
-                  <p className="ms-2">Booking Page</p>
-                </Link>
-              </li>
+  <Link to="/allbookings" className="nav-link">
+    <i className="fas fa-calendar-check" />
+    <p className="ms-2">Booking Page</p>
+  </Link>
+</li>
+<li className="nav-item">
+  <Link to="/allusers" className="nav-link">
+    <i className="fas fa-users" />
+    <p className="ms-2">Users Page</p>
+  </Link>
+</li>
+<li className="nav-item">
+  <Link to="/allforms" className="nav-link">
+    <i className="fas fa-file-alt" />
+    <p className="ms-2">Form Request</p>
+  </Link>
+</li>
+
               <li className="nav-item">
-                <Link to="/allusers" className="nav-link">
-                  <i className="" />
-                  <p className="ms-2">Users Page</p>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/allforms" className="nav-link">
-                  <i className="" />
-                  <p className="ms-2">Form Request</p>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/offers" className="nav-link">
-                  <i className="fas fa-tags" />
-                  <p className="ms-2">Offers</p>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/blogpage" className="nav-link">
-                  <i className="" />
-                  <p className="ms-2">Add Blog</p>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/allblogs" className="nav-link">
-                  <i className="" />
-                  <p className="ms-2">Blogs</p>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/packageaddpage" className="nav-link">
-                  <i className="" />
-                  <p className="ms-2">Add Packages</p>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/allpackages" className="nav-link">
-                  <i className="" />
-                  <p className="ms-2">All Packages</p>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/logout" className="nav-link">
-                  <i className="" />
-                  <p className="ms-2">Logout</p>
-                </Link>
-              </li>
+  <Link to="/offers" className="nav-link">
+    <i className="fas fa-tags" />
+    <p className="ms-2">Offers</p>
+  </Link>
+</li>
+<li className="nav-item">
+  <Link to="/blogpage" className="nav-link">
+    <i className="fas fa-pen" />
+    <p className="ms-2">Add Blog</p>
+  </Link>
+</li>
+<li className="nav-item">
+  <Link to="/allblogs" className="nav-link">
+    <i className="fas fa-book" />
+    <p className="ms-2">Blogs</p>
+  </Link>
+</li>
+<li className="nav-item">
+  <Link to="/packageaddpage" className="nav-link">
+    <i className="fas fa-box-open" />
+    <p className="ms-2">Add Packages</p>
+  </Link>
+</li>
+<li className="nav-item">
+  <Link to="/allpackages" className="nav-link">
+    <i className="fas fa-boxes" />
+    <p className="ms-2">All Packages</p>
+  </Link>
+</li>
+<li className="nav-item">
+  <Link to="/logout" className="nav-link">
+    <i className="fas fa-sign-out-alt" />
+    <p className="ms-2">Logout</p>
+  </Link>
+</li>
+
             </ul>
             
           </nav>

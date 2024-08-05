@@ -13,3 +13,8 @@
       display: none;
     }    
   }
+  @media (max-width:600px) {
+    .amt{
+      font-size: 20px !important;
+    }
+  }
